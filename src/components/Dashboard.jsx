@@ -1,3 +1,4 @@
+import React, { useEffect, useRef, useState } from 'react';
 import {
   MDBCard,
   MDBCardBody,
@@ -5,38 +6,8 @@ import {
   MDBCardText,
   MDBBtn,
 } from "mdb-react-ui-kit";
-import React, { useEffect, useRef, useState } from 'react';
-import {
-  MDBModal,
-  MDBModalDialog,
-  MDBModalContent,
-  MDBModalHeader,
-  MDBModalTitle,
-  MDBModalBody,
-  MDBModalFooter,
-  MDBInput,
-} from 'mdb-react-ui-kit';
-
 
 export default function Dashboard() {
-
-    const [open, setOpen] = useState(false);
-    const inputRef = useRef(null);
-
-
-
-
-    useEffect(() => {
-        if (open) {
-          inputRef.current?.focus();
-        }
-      }, [open]);
-
-
-
-
-
-
 
 
   const items = [
@@ -65,29 +36,6 @@ export default function Dashboard() {
         </div>
       ))}
       </div>
-
-
-
-      <MDBBtn onClick={() => setOpen(!open)}>LAUNCH DEMO MODAL</MDBBtn>
-      <MDBModal open={open} setOpen={setOpen} tabIndex={-1}>
-        <MDBModalDialog>
-          <MDBModalContent>
-            <MDBModalHeader>
-              <MDBModalTitle>Modal title</MDBModalTitle>
-              <MDBBtn className='btn-close' color='none' onClick={() => setOpen(!open)}></MDBBtn>
-            </MDBModalHeader>
-            <MDBModalBody>
-              <MDBInput ref={inputRef} />
-            </MDBModalBody>
-
-            <MDBModalFooter>
-              <MDBBtn type='button' onClick={() => setOpen(!open)}>
-                Close
-              </MDBBtn>
-            </MDBModalFooter>
-          </MDBModalContent>
-        </MDBModalDialog>
-      </MDBModal>
 
 
     </>
